@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block name %}
+    {% for table in tables %}
+        <table>
+            <thead>
+                <tr>
+                    {% for head in table.header%}
+                        <td>{{ head }}</td>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for body in table.body %}
+                    <tr>
+                        {% for item in body %}
+                            <td>{{ item }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    {% endfor %}
+{% endblock %}
