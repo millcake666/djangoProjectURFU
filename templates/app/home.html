@@ -1,3 +1,15 @@
 {% extends 'base.html' %}
 
-{% block name %}<p>{{ profession.0.description }}</p>{% endblock %}
+{% block main %}
+    <h1>{{ profession.title }}</h1>
+
+    {{ profession.desc | safe }}
+
+
+    <div class="gallery">
+        {% for foo in profession %}
+        
+        {% endfor %}
+        
+    </div>
+{% endblock %}

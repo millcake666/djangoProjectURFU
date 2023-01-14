@@ -5,15 +5,15 @@ from .utils import parse_data
 
 def home_page(request):
     profession = models.Profession.objects.all()
+
     return render(request, 'app/home.html', context={'profession': profession})
 
 
-def demand(request):
-    page = 'Востребованность'
+def get_page_info(page):
     try:
         model_page = models.Page.objects.get(title=page)
     except Exception as e:
-        return render(request, 'app/notfound.html', context=dict(page=page))
+        return
 
     csv_files = models.Table.objects.filter(page_id=model_page.id).all()
     charts = models.Image.objects.filter(page_id=model_page.id).all()
@@ -23,15 +23,34 @@ def demand(request):
         table = parse_data(file.file.path)
         tables.append(table)
 
-    return render(request, 'app/demand.html', context={'tables': tables, 'charts': charts})
+    return {'tables': tables, 'charts': charts}
+
+
+def demand(request):
+    page = 'Востребованность'
+
+    context = get_page_info(page)
+    if context is None:
+        return render(request, 'app/notfound.html', context=dict(page=page))
+
+    return render(request, 'app/demand.html', context=context)
 
 
 def geo(request):
-    return render(request, 'app/geo.html', context={})
+    page = 'География'
+    context = get_page_info(page)
+    if context is None:
+        return render(request, 'app/notfound.html', context=dict(page=page))
+
+    return render(request, 'app/demand.html', context=context)
 
 
 def skills(request):
-    return render(request, 'app/skills.html', context={})
+    page = 'Навыки'
+    context = get_page_info(page)
+    if context is None:
+        return render(request, 'app/notfound.html', context=dict(page=page))
+    return render(request, 'app/demand.html', context=context)
 
 
 def latest_vacancies(request):

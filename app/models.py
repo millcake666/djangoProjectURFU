@@ -37,7 +37,8 @@ class Table(models.Model):
 class Image(models.Model):
     img = models.ImageField('Изображение', upload_to='img/')
 
-    page_id = models.ForeignKey(Page, on_delete=models.CASCADE)
+    page_id = models.ForeignKey(Page, on_delete=models.DO_NOTHING, null=True, db_constraint=False)
+    profession_id = models.ForeignKey(Profession, on_delete=models.DO_NOTHING, null=True, db_constraint=False)
 
     def __str__(self):
         return self.img.name
