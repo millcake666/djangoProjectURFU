@@ -10,7 +10,8 @@ def home_page(request):
     except:
         return render(request, 'app/notfound.html', context={'error': 'Нет профессий в бд'})
 
-    return render(request, 'app/home.html', context={'profession': profession})
+    images = models.Image.objects.filter(profession_id=profession.id).all()
+    return render(request, 'app/home.html', context={'profession': profession, 'images': images})
 
 
 def get_page_info(page):

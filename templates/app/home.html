@@ -7,6 +7,10 @@
 
 
     <div class="gallery">
-        
+        {% for img in images %}
+            {% if img.img %}
+                <img src="{{ img.img.url }}" alt="">
+            {% endif %} 
+        {% endfor %}
     </div>
 {% endblock %}
