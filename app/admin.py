@@ -14,9 +14,18 @@ class Chart(admin.StackedInline):
     exclude = ['profession_id']
 
 
+class Image(admin.StackedInline):
+    model = models.Image
+    extra = 1
+    fk_name = 'profession_id'
+    exclude = ['page_id']
+
+
 @admin.register(models.Page)
-class AdminProfession(admin.ModelAdmin):
+class AdminPage(admin.ModelAdmin):
     inlines = [Table, Chart]
 
 
-admin.site.register(models.Profession)
+@admin.register(models.Profession)
+class AdminProfession(admin.ModelAdmin):
+    inlines = [Image,]
