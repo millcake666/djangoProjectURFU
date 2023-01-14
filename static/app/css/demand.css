@@ -25,18 +25,19 @@ td{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .gallery-other{
     display: flex;
-    width: 80%;
+    width: 60%;
 }
 
 .gallery-other img{
     width: 20%;
 }
 .main{
-    width: 80%;
+    width: 60%;
 }
 .main img{
     width: 100%;

@@ -10,9 +10,11 @@ header{
     flex-direction: row;
     align-items: center;
     background: blue;
-    width: 100%;
+    width: 80%;
     height: 100px;
-    margin-bottom: 50px;
+    border-radius: 20px;
+    margin: 30px auto 50px;
+    color: ghostwhite;
 }
 
 header img{
@@ -21,13 +23,16 @@ header img{
 
 nav{
     margin-right: 100px;
+    width: 10%;
 }
 
 nav li{
     list-style: none;
+    width: 100%;
 }
 
 nav a{
+    width: 100%;
     text-decoration: none;
     display: block;
     padding: 5px;
@@ -61,4 +66,5 @@ footer{
     gap: 15px;
     height: 100px;
     margin-top: 80px;
+    color: ghostwhite;
 }
