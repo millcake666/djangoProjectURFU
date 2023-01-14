@@ -58,10 +58,11 @@ def get_vacancies(profession):
             continue
 
         vacancy: dict = r.json()
-        clean = {}
+        dict_data = {}
         for parse_function in parse_functions:
-            field = vacancy.get(parse_function.name, parse_function.default)
-            result = parse_function.func(result) if parse_function.func else field
-            clean[parse_function.name] = f'{parse_function.name}: {result}' if parse_function.name and result else result
-        data.append([clean.pop('name'), (clean.values())])
+            field = vacancy.get(parse_function.key, parse_function.default)
+            result = parse_function.func(field) if parse_function.func else field
+            dict_data[
+                parse_function.key] = f'{parse_function.name}: {result}' if parse_function.name and result else result
+        data.append([dict_data.pop('name'), (dict_data.values())])
     return data
