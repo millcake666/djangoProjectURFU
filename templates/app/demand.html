@@ -2,6 +2,7 @@
 {% load static %}
 {% block head %}
     <link rel="stylesheet" href="{%  static 'app/css/demand.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 {% endblock %}
 
 {% block main %}
@@ -33,10 +34,27 @@
     </div>
 
     <div class="gallery">
-        {% for chart in charts %}
-            {% if chart.img %}
-                <img src="{{ chart.img.url }}" alt="">
-            {% endif %}
-        {% endfor %}
+        <div class="main">
+            {% if charts|length > 0 %}
+                {% if charts.0.img %}
+                    <img src="{{ charts.0.img.url }}" alt="">
+                {% endif %} 
+            {% endif %} 
+        </div>
+        <div class="gallery-other">
+            {% for chart in charts %}
+                {% if chart.img %}
+                    <img src="{{ chart.img.url }}" alt="">
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
+
+    <script>
+        $('.gallery-other img').click(
+            function () {
+                $(this).closest('.gallery-other').prev('.main').find('img').attr('src', $(this).attr('src'))
+            }
+        )
+    </script>
 {% endblock %}
