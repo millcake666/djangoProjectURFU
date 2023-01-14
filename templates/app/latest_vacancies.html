@@ -7,15 +7,15 @@
 {% block main %}
     {% for vacancy in vacancies %}
         <h1>{{ vacancy.0 }}</h1>
-
+        <ul>
         {% for li in vacancy.1 %}
-            <ul>
+
                 {% if li %}
                     <li>{{ li | safe }}</li>
                 {% endif %}
-            </ul>
-        {% endfor %}
 
+        {% endfor %}
+        </ul>
     {% endfor %}
 
 {% endblock %}
