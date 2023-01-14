@@ -8,8 +8,36 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
-    <p>lol</p>
-    {% block name %}
+
+<header>
+    <h1>Project manager</h1>
+</header>
+
+
+
+<main>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'demand' %}">Востребованность</a></li>
+            <li><a href="{% url 'demand' %}">Востребованность</a></li>
+            <li><a href="{% url 'demand' %}">Востребованность</a></li>
+            <li><a href="{% url 'demand' %}">Востребованность</a></li>
+            <li><a href="{% url 'demand' %}">Востребованность</a></li>
+        </ul>
+    </nav>
+
+    {% block main %}
+
     {% endblock %}
+
+</main>
+
+
+
+<footer>
+    <span>Грязнов Дмитрий</span>
+</footer>
+
 </body>
 </html>

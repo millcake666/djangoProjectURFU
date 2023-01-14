@@ -9,13 +9,21 @@ def home_page(request):
 
 
 def demand(request):
-    professions = models.Profession.objects.all()
-    tables = list()
-    for profession in professions:
-        files = models.FileProfession.objects.filter(profession_id=profession.id).all()
-        for file in files:
-            tables.append(parse_data(file.file.path))
-    return render(request, 'app/demand.html', context={'tables': tables})
+    page = 'Востребованность'
+    try:
+        model_page = models.Page.objects.get(title=page)
+    except Exception as e:
+        return render(request, 'app/notfound.html', context=dict(page=page))
+
+    csv_files = models.Table.objects.filter(page_id=model_page.id).all()
+    charts = models.Image.objects.filter(page_id=model_page.id).all()
+
+    tables = []
+    for file in csv_files:
+        table = parse_data(file.file.path)
+        tables.append(table)
+
+    return render(request, 'app/demand.html', context={'tables': tables, 'charts': charts})
 
 
 def geo(request):
