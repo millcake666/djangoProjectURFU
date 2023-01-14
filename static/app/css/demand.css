@@ -24,13 +24,12 @@ td{
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .gallery-other{
     display: flex;
-    width: 60%;
     gap: 10px;
 }
 
