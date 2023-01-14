@@ -3,7 +3,7 @@ from . import models
 
 
 class File(admin.StackedInline):
-    model = models.File
+    model = models.FileProfession
     extra = 1
 
 
@@ -12,4 +12,4 @@ class AdminProfession(admin.ModelAdmin):
     inlines = [File]
 
 
-admin.site.register(models.File)
+admin.site.register(models.FileProfession)
