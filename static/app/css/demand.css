@@ -3,6 +3,7 @@
 table{
     text-align: center;
     border-collapse: collapse;
+    width: 20%;
 }
 
 thead{
@@ -16,4 +17,21 @@ tr:hover{
 td{
     padding: 5px 10px 5px 10px;
     border: 1px solid black;
+}
+
+
+.gallery{
+    width: 100%;
+}
+
+.gallery img{
+    width: 100%;
+}
+
+.tables{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    row-gap: 30px;
+    column-gap: 5%;
 }

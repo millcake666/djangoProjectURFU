@@ -10,6 +10,8 @@ class Table(admin.StackedInline):
 class Chart(admin.StackedInline):
     model = models.Image
     extra = 1
+    fk_name = 'page_id'
+    exclude = ['profession_id']
 
 
 @admin.register(models.Page)

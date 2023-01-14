@@ -25,20 +25,18 @@
                             {% for td in body %}
                                 <td>{{ td }}</td>
                             {% endfor %}
-
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
         {% endfor %}
-    
-    
+    </div>
+
     <div class="gallery">
         {% for chart in charts %}
-            {% if chart %}
-                <img src="{{ chart.url }}" alt="">
-            {% endif %} 
+            {% if chart.img %}
+                <img src="{{ chart.img.url }}" alt="">
+            {% endif %}
         {% endfor %}
-    </div>
     </div>
 {% endblock %}
