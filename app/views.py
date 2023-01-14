@@ -25,7 +25,7 @@ def get_page_info(page):
     tables = []
     for file in csv_files:
         table = parse_data(file.file.path)
-        tables.append(table)
+        tables.append((file.title, table))
 
     return {'tables': tables, 'charts': charts}
 

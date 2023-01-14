@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
-
-
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{%  static 'app/css/demand.css' %}">
+{% endblock %}
 
 {% block main %}
     <div class="tables">
-        {% for table in tables %}
+        {% for title, table in tables %}
             <table>
                 <thead>
+                    <tr>
+                        <td colspan="{{ table.header|length }}">{{ title }}</td>
+                    </tr>
                     <tr>
                         {% for header in table.header %}
                             <td>{{ header }}</td>

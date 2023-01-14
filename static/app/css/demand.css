@@ -1,0 +1,19 @@
+
+
+table{
+    text-align: center;
+    border-collapse: collapse;
+}
+
+thead{
+    font-weight: bold;
+}
+
+tr:hover{
+    background: rgba(0, 0, 0, 0.09);
+}
+
+td{
+    padding: 5px 10px 5px 10px;
+    border: 1px solid black;
+}

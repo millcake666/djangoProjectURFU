@@ -1,7 +1,7 @@
 body{
     padding: 0;
     margin: 0;
-    font-family: Arial sans-serif;
+    font: 110%/1.55 "HSE Sans", "Helvetica Neue", Arial, sans-serif;
 
 }
 
@@ -45,4 +45,16 @@ main{
 
 .content{
     margin-right: 30px;
+}
+
+
+footer{
+    width: 100%;
+    background: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    height: 100px;
 }
