@@ -15,6 +15,7 @@ header{
     border-radius: 20px;
     margin: 30px auto 50px;
     color: ghostwhite;
+    justify-content: center;
 }
 
 header img{
